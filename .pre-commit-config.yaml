@@ -1,0 +1,13 @@
+repos:
+  - repo: local
+    hooks:
+    - id: lint-clang-format
+      name: lint-clang-format
+      language: system
+      entry: bash -c "git diff --cached --name-only | grep -E '\.(cpp|cc|c|h|mm)$' | grep -v game_server.capnp | xargs -n 1 -P 4 --verbose clang-format -style=file -i"
+  - repo: local
+    hooks:
+    - id: lint-yapf
+      name: lint-yapf
+      language: system
+      entry: bash -c "git diff --cached --name-only | grep .py$ | xargs -n 1 -P 4 --verbose yapf -i"
