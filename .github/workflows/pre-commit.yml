@@ -27,7 +27,7 @@ jobs:
       - uses: actions/setup-python@v3
       
       # Runs a single command using the runners shell
-      - name: Install pre-commit
-        run: pip install pre-commit
+      - name: Install pre-commit & yapf
+        run: pip install pre-commit yapf
       - name: Run pre-commit
         run: pre-commit run --all-files
